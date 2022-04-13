@@ -1,5 +1,5 @@
 # nginx-mon
-Uprobe code in nginx-mon/nginx-mon-ebpf/src/main.rs
+Uprobe code in nginx-mon/nginx-mon-ebpf/src/main.rs (interesting part)
 
 ## Prerequisites
 
