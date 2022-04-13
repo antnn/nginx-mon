@@ -8,33 +8,6 @@ use aya_bpf::{
     maps::{PerCpuArray, PerfEventArray}, bindings::BPF_F_CURRENT_CPU, 
 };
 
-/* 
-#[repr(C)]
-pub struct MonData {
-    pub req_buf: PerCpuArray<Buf>,
-    pub ptr: *const u8,
-    pub endtime: u64
-}
- 
-impl MonData {
-    fn new(mut self, b: PerCpuArray<Buf>) {
-        self.req_buf = b;
-        self.ptr =0 as *const u8;
-        self.endtime =0;
-    }
-}*/
-/*
-impl Default for MonData {
-    fn default() -> MonData {
-        MonData {
-            req_buf: Buf{buf:[0; 1024]},
-            ptr:0 as *const u8,
-            endtime:0
-        }
-    }
-}*/
-
-
 
 
 type _Buffer=[u8; 8192];
@@ -126,13 +99,6 @@ unsafe fn intercept_ngx_http_finalize_connection(ctx: ProbeContext) -> Result<i6
     *second_call=0;
     Ok(0)
 }
-
-
-
-
-
-
-
 
 
 
