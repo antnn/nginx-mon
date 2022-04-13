@@ -117,7 +117,7 @@ pub fn ngx_http_finalize_connection(ctx: ProbeContext) -> i64 {
 
 unsafe fn intercept_ngx_http_finalize_connection(ctx: ProbeContext) -> Result<i64, i64> {'
     let second_call=  TIME.get_mut(1).ok_or(0)?;
-    if *second_call == 0 { // ngx_http_upstream_handler may call ngx_http_finalize_connection, we need second
+    if *second_call == 0 { // we need call after ngx_http_upstream_handler
         *second_call = 1;
         return Ok(0);
     }
