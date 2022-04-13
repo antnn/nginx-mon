@@ -1,0 +1,21 @@
+[package]
+name = "nginx-mon"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+aya = {  version = "0.10.7", features=["async_tokio"] }
+nginx-mon-common = { path = "../nginx-mon-common", features=["user"] }
+anyhow = "1.0.42"
+libc = "0.2.102"
+log = "0.4"
+aya-log = { git = "https://github.com/aya-rs/aya-log", commit= "e89ce9a873a2843010e165ab55641419e1a08c42" }
+simplelog = "0.11"
+structopt = { version = "0.3" }
+#async-std={version= "1.9.0", features=[ "attributes"]}
+tokio = { version = "1.5.0", features = ["macros", "rt", "rt-multi-thread", "net", "signal"] }
+
+[[bin]]
+name = "nginx-mon"
+path = "src/main.rs"

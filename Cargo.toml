@@ -1,0 +1,2 @@
+[workspace]
+members = ["nginx-mon", "nginx-mon-common", "xtask"]
