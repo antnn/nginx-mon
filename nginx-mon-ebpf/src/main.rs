@@ -27,9 +27,9 @@ static mut REQUESTS_BUF: PerfEventArray<Buf> = PerfEventArray::with_max_entries(
 
 
 /**
- * ngx_http_wait_request_handler -> ngx_http_create_request
+ * 1) ngx_http_wait_request_handler -> 2) ngx_http_create_request
  * OR
- * ngx_http_keepalive_handler -> ngx_http_create_request
+ * 1) ngx_http_keepalive_handler -> 2) ngx_http_create_request
  */
 #[uprobe(name="ngx_http_create_request")] //progname
 pub fn ngx_http_create_request(ctx: ProbeContext) -> i64 {
