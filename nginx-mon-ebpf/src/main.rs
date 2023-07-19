@@ -46,6 +46,7 @@ use aya_log_ebpf::{debug, error, info, trace, warn};
  * to read a single field from a struct, rather than reading 
  * the whole struct and accessing the field by name.
  * struct->field->field
+ * Dumps incoming request body
 **/
 unsafe fn p2p<T>(ptr: *const T) -> Result<*const T, i64> {
     bpf_probe_read_user(ptr as *const _ )
